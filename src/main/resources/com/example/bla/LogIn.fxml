@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.bla.LogIn">
+   <children>
+      <AnchorPane prefHeight="409.0" prefWidth="191.0" style="-fx-background-color: #D2691E;">
+         <children>
+            <Label layoutX="13.0" layoutY="169.0" prefHeight="94.0" prefWidth="178.0" text="Book Library Application">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Label>
+            <ImageView fx:id="fundalImg" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" style="-fx-blend-mode: #D2691E;" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="10.0">
+               <image>
+                  <Image url="@../../../../java/com/example/bla/book-stack.jpeg" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="209.0" layoutY="6.0" prefHeight="400.0" prefWidth="401.0">
+         <children>
+            <Label layoutX="38.0" layoutY="84.0" text="Username:">
+               <font>
+                  <Font name="Arial Rounded MT Bold" size="15.0" />
+               </font>
+            </Label>
+            <Label layoutX="39.0" layoutY="125.0" text="Password:">
+               <font>
+                  <Font name="Arial Rounded MT Bold" size="15.0" />
+               </font>
+            </Label>
+            <TextField fx:id="tf_username" layoutX="124.0" layoutY="80.0" />
+            <Button fx:id="button_login" layoutX="162.0" layoutY="258.0" mnemonicParsing="false" style="-fx-cursor: hand;" text="Log in">
+               <font>
+                  <Font name="Arial Rounded MT Bold" size="15.0" />
+               </font>
+            </Button>
+            <Label layoutX="124.0" layoutY="108.0">
+               <font>
+                  <Font name="Arial Rounded MT Bold" size="15.0" />
+               </font>
+            </Label>
+            <Label layoutX="77.0" layoutY="325.0" text="Not a user?">
+               <font>
+                  <Font name="Arial Rounded MT Bold" size="15.0" />
+               </font>
+            </Label>
+            <Button fx:id="button_signup" layoutX="155.0" layoutY="320.0" mnemonicParsing="false" style="-fx-background-color: transparent; -fx-cursor: transparent;" text="Sign up!" textFill="CHOCOLATE">
+               <font>
+                  <Font name="Arial Rounded MT Bold" size="15.0" />
+               </font>
+            </Button>
+            <Label layoutX="139.0" layoutY="14.0" prefHeight="66.0" prefWidth="139.0" text="Log In" textFill="CHOCOLATE">
+               <font>
+                  <Font name="Arial Rounded MT Bold" size="30.0" />
+               </font>
+            </Label>
+            <PasswordField fx:id="tf_password" layoutX="126.0" layoutY="121.0" />
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>
