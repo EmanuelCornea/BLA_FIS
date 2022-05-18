@@ -19,7 +19,7 @@
                   <Font name="System Bold" size="15.0" />
                </font>
             </Label>
-            <ImageView fx:id="fundalImg" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" style="-fx-blend-mode: #D2691E;" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="10.0">
+            <ImageView fx:id="fundalImg" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="10.0">
                <image>
                   <Image url="@../../../../java/com/example/bla/book-stack.jpeg" />
                </image>

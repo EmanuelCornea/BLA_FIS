@@ -18,7 +18,7 @@
                   <Font name="System Bold" size="15.0" />
                </font>
             </Label>
-            <ImageView fx:id="fundalImg" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" style="-fx-blend-mode: #D2691E;" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="10.0">
+            <ImageView fx:id="fundalImg" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="10.0">
                <image>
                   <Image url="@../../../../java/com/example/bla/book-stack.jpeg" />
                </image>
@@ -38,7 +38,7 @@
                </font>
             </Label>
             <TextField fx:id="tf_username" layoutX="124.0" layoutY="80.0" />
-            <Button fx:id="button_login" layoutX="162.0" layoutY="258.0" mnemonicParsing="false" style="-fx-cursor: hand;" text="Log in">
+            <Button fx:id="button_login" layoutX="162.0" layoutY="258.0" mnemonicParsing="false" text="Log in">
                <font>
                   <Font name="Arial Rounded MT Bold" size="15.0" />
                </font>
@@ -53,7 +53,7 @@
                   <Font name="Arial Rounded MT Bold" size="15.0" />
                </font>
             </Label>
-            <Button fx:id="button_signup" layoutX="155.0" layoutY="320.0" mnemonicParsing="false" style="-fx-background-color: transparent; -fx-cursor: transparent;" text="Sign up!" textFill="CHOCOLATE">
+            <Button fx:id="button_signup" layoutX="155.0" layoutY="320.0" mnemonicParsing="false" style="-fx-background-color: transparent;" text="Sign up!" textFill="CHOCOLATE">
                <font>
                   <Font name="Arial Rounded MT Bold" size="15.0" />
                </font>
