@@ -2,6 +2,7 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -10,21 +11,20 @@
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.bla.LogIn">
    <children>
-      <AnchorPane prefHeight="406.0" prefWidth="200.0" style="-fx-background-color: #D2691E;">
+      <AnchorPane prefHeight="409.0" prefWidth="191.0" style="-fx-background-color: #D2691E">
          <children>
-            <ImageView fitHeight="150.0" fitWidth="131.0" layoutX="27.0" layoutY="38.0" pickOnBounds="true" preserveRatio="true" style="-fx-blend-mode: #D2691E;">
-               <image>
-                  <Image url="@../../../../java/com/example/bla/book-stack.png" />
-               </image>
-            </ImageView>
-            <Label layoutX="10.0" layoutY="169.0" prefHeight="94.0" prefWidth="181.0" text="Book Library Application">
+            <Label layoutX="13.0" layoutY="169.0" prefHeight="94.0" prefWidth="178.0" text="Book Library Application">
                <font>
                   <Font name="System Bold" size="15.0" />
                </font>
             </Label>
+            <ImageView fitHeight="151.0" fitWidth="149.0" layoutX="21.0" layoutY="25.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="C:\Users\samsu\IdeaProjects\BLA_FIS\src\main\java\com\example\bla\book-stack.png" />
+               </image></ImageView>
          </children>
       </AnchorPane>
-      <AnchorPane layoutX="209.0" layoutY="6.0" prefHeight="400.0" prefWidth="401.0">
+      <AnchorPane layoutX="191.0" layoutY="5.0" prefHeight="400.0" prefWidth="401.0">
          <children>
             <Label layoutX="38.0" layoutY="84.0" text="Username:">
                <font>
@@ -37,8 +37,7 @@
                </font>
             </Label>
             <TextField fx:id="tf_username" layoutX="124.0" layoutY="80.0" />
-            <TextField fx:id="tf_password" layoutX="124.0" layoutY="121.0" />
-            <Button fx:id="button_login" layoutX="162.0" layoutY="258.0" mnemonicParsing="false" style="-fx-cursor: hand;" text="Log in">
+            <Button fx:id="button_login" layoutX="162.0" layoutY="258.0" mnemonicParsing="false" text="Log in">
                <font>
                   <Font name="Arial Rounded MT Bold" size="15.0" />
                </font>
@@ -53,7 +52,7 @@
                   <Font name="Arial Rounded MT Bold" size="15.0" />
                </font>
             </Label>
-            <Button fx:id="button_signup" layoutX="155.0" layoutY="320.0" mnemonicParsing="false" style="-fx-background-color: transparent; -fx-cursor: transparent;" text="Sign up!" textFill="CHOCOLATE">
+            <Button fx:id="button_signup" layoutX="169.0" layoutY="320.0" mnemonicParsing="false" style="-fx-background-color: transparent;" text="Sign up!" textFill="CHOCOLATE">
                <font>
                   <Font name="Arial Rounded MT Bold" size="15.0" />
                </font>
@@ -63,6 +62,7 @@
                   <Font name="Arial Rounded MT Bold" size="30.0" />
                </font>
             </Label>
+            <PasswordField fx:id="tf_password" layoutX="126.0" layoutY="121.0" />
          </children>
       </AnchorPane>
    </children>

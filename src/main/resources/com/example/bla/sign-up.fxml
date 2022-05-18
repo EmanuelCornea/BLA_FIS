@@ -2,6 +2,7 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -18,9 +19,9 @@
                   <Font name="System Bold" size="15.0" />
                </font>
             </Label>
-            <ImageView fitHeight="150.0" fitWidth="135.0" layoutX="26.0" layoutY="30.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="155.0" fitWidth="172.0" layoutX="10.0" layoutY="22.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../../../../../../../Downloads/book-stack.png" />
+                  <Image url="C:\Users\samsu\IdeaProjects\BLA_FIS\src\main\java\com\example\bla\book-stack.png" />
                </image>
             </ImageView>
          </children>
@@ -38,7 +39,6 @@
                </font>
             </Label>
             <TextField fx:id="tf_username" layoutX="126.0" layoutY="79.0" />
-            <TextField fx:id="tf_password" layoutX="126.0" layoutY="119.0" />
             <Button fx:id="button_signup" layoutX="159.0" layoutY="284.0" mnemonicParsing="false" text="Register">
                <font>
                   <Font name="Arial Rounded MT Bold" size="15.0" />
@@ -59,6 +59,7 @@
                   <Font name="Arial Rounded MT Bold" size="24.0" />
                </font>
             </Label>
+            <PasswordField fx:id="tf_password" layoutX="126.0" layoutY="119.0" />
          </children>
       </AnchorPane>
    </children>
