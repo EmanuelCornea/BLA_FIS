@@ -5,7 +5,10 @@ import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 
+import java.io.File;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -17,7 +20,8 @@ public class SignUpController implements Initializable {
     @FXML
     private Button button_signup;
 
-
+    @FXML
+    private ImageView fundalImg;
 
     @FXML
     private TextField tf_username;
@@ -28,7 +32,9 @@ public class SignUpController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
-
+        File fundalFile = new File("src/main/java/com/example/bla/book-stack.jpeg");
+        Image fundalImage = new Image(fundalFile.toURI().toString());
+        fundalImg.setImage(fundalImage);
 
 
         button_signup.setOnAction(new EventHandler<ActionEvent>() {
