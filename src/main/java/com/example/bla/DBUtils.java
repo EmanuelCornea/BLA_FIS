@@ -10,15 +10,26 @@ import javafx.scene.control.Alert;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.Objects;
 
 public class DBUtils {
-    public static void changeScene(ActionEvent event, String fxmlFile, String title, String username) {
+    public static void changeScene(ActionEvent event, String fxmlFile, String title, String username,String actor) {
         Parent root = null;
 
-        if(username != null ) {
+        if(username != null && actor!=null ) {
             try {
                 FXMLLoader loader = new FXMLLoader(DBUtils.class.getResource(fxmlFile));
                 root = loader.load();
+                if(actor.equals("reader")){
+                    HomePageReader homePageReader=loader.getController();
+                    homePageReader.setUserInformation(username);
+
+                }
+                else if(actor.equals("writer")){
+                    HomePageWriter homePageWriter=loader.getController();
+                    homePageWriter.setUserInformation("writer "+username);
+
+                }
 
             } catch (IOException e) {
                 e.printStackTrace();
@@ -32,11 +43,12 @@ public class DBUtils {
         }
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         stage.setTitle(title);
+
         stage.setScene(new Scene(root, 600, 400));
         stage.show();
     }
 
-    public static void signUpUser(ActionEvent event, String username, String password){
+    public static void signUpUser(ActionEvent event, String username, String password, String actor){
         Connection connection=null;
         PreparedStatement psInsert=null;
         PreparedStatement psCheckUserExists = null;
@@ -44,7 +56,7 @@ public class DBUtils {
 
         try{
             connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/bla", "root", "root");
-            psCheckUserExists = connection.prepareStatement("SELECT * FROM users WHERE username = ?");
+            psCheckUserExists = connection.prepareStatement("SELECT * FROM users WHERE username = ? ");
             psCheckUserExists.setString(1, username );
             resultSet=psCheckUserExists.executeQuery();
 
@@ -54,16 +66,19 @@ public class DBUtils {
                 alert.setContentText("You cannot set this username");
                 alert.show();
             } else {
-                psInsert=connection.prepareStatement("INSERT INTO users (username, password) VALUES (?, ?)");
-                psInsert.setString(1,username);
-                psInsert.setString(2,password);
+                psInsert = connection.prepareStatement("INSERT INTO users (username, password,actor) VALUES (?, ?, ?)");
+                psInsert.setString(1, username);
+                psInsert.setString(2, password);
+                psInsert.setString(3, actor);
 
 
                 psInsert.executeUpdate();
-
-                changeScene(event,"LoggedIn.fxml","Welcome!",username);
+                if (Objects.equals(actor, "reader")) {
+                    changeScene(event, "HomePageReader.fxml", "Welcome!", username, "reader");
+                } else if(Objects.equals(actor,"writer")){
+                    changeScene(event, "HomePageWriter.fxml", "Welcome!", username, "writer");
+                }
             }
-
         }catch(SQLException e){
             e.printStackTrace();
         }finally {
@@ -99,13 +114,13 @@ public class DBUtils {
 
         }
     }
-    public static void logInUser(ActionEvent event, String username, String password){
+    public static void logInUser(ActionEvent event, String username, String password,String actor){
         Connection connection= null;
         PreparedStatement preparedStatement=null;
         ResultSet resultSet=null;
         try{
             connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/bla", "root", "root");
-            preparedStatement= connection.prepareStatement("SELECT password FROM users WHERE username = ?");
+            preparedStatement= connection.prepareStatement("SELECT *  FROM users WHERE username = ?");
             preparedStatement.setString(1,username);
             resultSet = preparedStatement.executeQuery();
 
@@ -120,9 +135,16 @@ public class DBUtils {
             {
                 while(resultSet.next()){
                     String retrievedPassword=resultSet.getString("password");
+                    String retrievedActor=resultSet.getString("actor");
                     if(retrievedPassword.equals(password)){
-                        changeScene(event, "LoggedIn.fxml", "Welcome!", username);
-                    } else
+                        if(retrievedActor.equals("reader")) {
+                            changeScene(event, "HomePageReader.fxml", "Welcome! ", username, "reader");
+                        }else if(retrievedActor.equals("writer")){
+
+                            changeScene(event, "HomePageWriter.fxml", "Welcome!", username, "writer");
+
+                        }
+                        } else
                     {
                         System.out.println("Passwords did not match!");
                         Alert alert= new Alert(Alert.AlertType.ERROR);
