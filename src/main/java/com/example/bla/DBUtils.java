@@ -296,4 +296,96 @@ public class DBUtils {
 
     }
 
+
+    public static void BuyBooks(String bookName){
+        Connection connection=null;
+    Connection connection1 = null;
+    Connection connection2=null;
+    PreparedStatement preparedStatement = null;
+    PreparedStatement psCheckUserExists1 = null;
+    ResultSet resultSet = null;
+    ResultSet resultSet1=null;
+    PreparedStatement psCheckUserExists2=null;
+    PreparedStatement psBoughtBook = null;
+    int totalMoney = 0;
+
+
+
+        try {
+
+            connection2=DriverManager.getConnection("jdbc:mysql://localhost:3306/bla", "root", "root");
+            psCheckUserExists2=connection2.prepareStatement("select money from reader_table ");
+            resultSet1=psCheckUserExists2.executeQuery();
+            if(resultSet1.next()){
+                 totalMoney=resultSet1.getInt("money");
+            }
+            
+            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/bla", "root", "root");
+            psCheckUserExists1 = connection.prepareStatement("SELECT *  FROM writer_table WHERE bookName = ? ");
+            psCheckUserExists1.setString(1, bookName);
+        resultSet = psCheckUserExists1.executeQuery();
+        if (!resultSet.isBeforeFirst()) {
+            System.out.println("Book does not exists!");
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setContentText("Book buying suspended due to error");
+            alert.show();
+        } else {
+
+
+
+
+            while (resultSet.next()) {
+                String retrievedAuthor = resultSet.getString("username");
+                int retrievedPrice = resultSet.getInt("bookPrice");
+
+                if(totalMoney-retrievedPrice>=0){
+
+                    connection1= DriverManager.getConnection("jdbc:mysql://localhost:3306/bla", "root", "root");
+                psBoughtBook = connection1.prepareStatement("Insert into reader_table (bookName, author, money) values (?,?,?)");
+                psBoughtBook.setString(1, bookName);
+                psBoughtBook.setString(2, retrievedAuthor);
+                psBoughtBook.setInt(3, totalMoney-retrievedPrice);
+                psBoughtBook.executeUpdate();
+
+                Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+                alert.setContentText("Book bought!");
+                alert.show();
+            }else{
+                    System.out.println("Insufficient money!");
+                    Alert alert = new Alert(Alert.AlertType.ERROR);
+                    alert.setContentText("Book buying suspended due to error");
+                    alert.show();
+                }
+            }
+        }
+    } catch (SQLException e) {
+        e.printStackTrace();
+    } finally {
+        if (resultSet != null) {
+            try {
+                resultSet.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+        if (preparedStatement != null) {
+            try {
+                preparedStatement.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+        if (connection1 != null) {
+            try {
+                connection1.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+
+    }
+
+}
+
+
 }

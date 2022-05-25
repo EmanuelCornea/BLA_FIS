@@ -4,12 +4,30 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
-
+<?import javafx.scene.text.Font?>
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.bla.BuyBooks">
    <children>
-      <Label layoutX="89.0" layoutY="105.0" prefHeight="17.0" prefWidth="127.0" text="Name of the book:" />
-      <TextField fx:id="bookNameField" layoutX="226.0" layoutY="101.0" />
-      <Button fx:id="bookNameButton" layoutX="260.0" layoutY="187.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="81.0" text="Buy" />
+      <TextField fx:id="tf_bookName" layoutX="277.0" layoutY="188.0" />
+      <Label layoutX="183.0" layoutY="34.0" prefHeight="44.0" prefWidth="235.0" text="Buying book " textFill="CHOCOLATE">
+         <font>
+            <Font name="Arial Rounded MT Bold" size="36.0" />
+         </font>
+      </Label>
+      <Label layoutX="38.0" layoutY="178.0" prefHeight="44.0" prefWidth="235.0" text="Name of the wanted book:" textFill="CHOCOLATE">
+         <font>
+            <Font name="Arial Rounded MT Bold" size="18.0" />
+         </font>
+      </Label>
+      <Button fx:id="cancel_button" layoutX="111.0" layoutY="329.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="149.0" style="-fx-background-color: #D2691E;" text="Cancel">
+         <font>
+            <Font name="Arial Rounded MT Bold" size="15.0" />
+         </font>
+      </Button>
+      <Button fx:id="buy_button" layoutX="351.0" layoutY="329.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="149.0" style="-fx-background-color: #D2691E;" text="Buy">
+         <font>
+            <Font name="Arial Rounded MT Bold" size="15.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>
