@@ -15,7 +15,7 @@ import java.util.ResourceBundle;
 
 
 
-public class HomePageReader implements Initializable {
+public class HomePageReader extends UserController implements Initializable {
     @FXML
     private Button button_logout;
 
