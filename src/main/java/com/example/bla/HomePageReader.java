@@ -48,6 +48,14 @@ public class HomePageReader extends UserController implements Initializable {
             }
         });
 
+        button_buyBooks.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                DBUtils.changeScene(event, "BuyBooks.fxml","Log In!", username,"reader");
+
+            }
+        });
+
     }
     public void setUserInformation(String username){
         label_welcome.setText("Welcome " + username + "!");

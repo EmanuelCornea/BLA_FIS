@@ -23,16 +23,8 @@ public class DBUtils {
                 root = loader.load();
 
 
-
-                UserController userController= loader.getController();
-                userController.getInformation(username,actor);
-
-
-
-
-
-
-
+                UserController userController = loader.getController();
+                userController.getInformation(username, actor);
 
 
             } catch (IOException e) {
@@ -209,7 +201,7 @@ public class DBUtils {
                 psInsert = connection1.prepareStatement("INSERT INTO writer_table (bookName,bookPrice,username) VALUES (?, ?, ?)");
                 psInsert.setString(1, bookName);
                 psInsert.setInt(2, bookPrice);
-                psInsert.setString(3,username);
+                psInsert.setString(3, username);
                 psInsert.executeUpdate();
                 Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
                 alert.setContentText("Book added!");
@@ -251,7 +243,7 @@ public class DBUtils {
         PreparedStatement preparedStatement = null;
         PreparedStatement psCheckUserExists1 = null;
         ResultSet resultSet = null;
-        PreparedStatement psDeletedBook=null;
+        PreparedStatement psDeletedBook = null;
 
 
         try {
@@ -266,8 +258,8 @@ public class DBUtils {
                 alert.setContentText("Book deleting suspended due to error");
                 alert.show();
             } else {
-                psDeletedBook= connection1.prepareStatement("Delete FROM writer_table WHERE bookName= ?");
-                psDeletedBook.setString(1,bookName);
+                psDeletedBook = connection1.prepareStatement("Delete FROM writer_table WHERE bookName= ?");
+                psDeletedBook.setString(1, bookName);
                 psDeletedBook.executeUpdate();
 
                 Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
@@ -304,17 +296,4 @@ public class DBUtils {
 
     }
 
-    public static void ViewBooks(ListView<String> books){
-        Connection connection1 = null;
-        PreparedStatement psInsert=null;
-        ResultSet resultSet=null;
-        try {
-            connection1 = DriverManager.getConnection("jdbc:mysql://localhost:3306/bla", "root", "root");
-            psInsert=connection1.prepareStatement("select * from writer_table ");
-            resultSet=psInsert.executeQuery();
-
-    } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
-    }}
-
+}
