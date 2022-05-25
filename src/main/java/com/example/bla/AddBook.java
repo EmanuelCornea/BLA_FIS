@@ -40,7 +40,7 @@ public class AddBook extends UserController implements Initializable {
   addButton1.setOnAction(new EventHandler<ActionEvent>() {
    @Override
    public void handle(ActionEvent event) {
-    DBUtils.AddBook(event,addTextField.getText(), Integer.valueOf(addTextField1.getText()),username);
+    DBUtils.AddBook(event,addTextField.getText(), Integer.valueOf(addTextField1.getText()), username);
    }
   });
   confirm_button.setOnAction(new EventHandler<ActionEvent>() {
