@@ -8,9 +8,9 @@ import javafx.scene.control.*;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-import static com.example.bla.UserController.username;
 
-public class DeleteBook implements Initializable {
+
+public class DeleteBook extends UserController implements Initializable {
     @FXML
     private Button deleteButton1;
     @FXML

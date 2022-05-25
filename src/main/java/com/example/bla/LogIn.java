@@ -31,7 +31,6 @@ public class LogIn implements Initializable {
     private ImageView fundalImg;
 
 
-
     @FXML
     private ChoiceBox<String> myChoiceBox;
 

@@ -23,20 +23,15 @@ public class DBUtils {
 
 
 
-                if (actor.equals("reader")) {
-                    HomePageReader homePageReader = loader.getController();
-                    homePageReader.setUserInformation(username);
+                UserController userController= loader.getController();
+                userController.getInformation(username,actor);
 
 
-                } else if (actor.equals("writer")) {
-                    HomePageWriter homePageWriter = loader.getController();
-                    homePageWriter.setUserInformation("writer " + username);
 
-                }
-                else{
-                    UserController controller=loader.getController();
-                    controller.getUsername(username);
-                }
+
+
+
+
 
 
             } catch (IOException e) {
@@ -74,7 +69,7 @@ public class DBUtils {
                 alert.setContentText("You cannot set this username");
                 alert.show();
             } else {
-                psInsert = connection.prepareStatement("INSERT INTO users (username, password,actor) VALUES (?, ?, ?)");
+                psInsert = connection.prepareStatement("INSERT INTO users (username, password, actor) VALUES (?, ?, ?)");
                 psInsert.setString(1, username);
                 psInsert.setString(2, password);
                 psInsert.setString(3, actor);

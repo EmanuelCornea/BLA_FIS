@@ -1,13 +1,13 @@
 package com.example.bla;
 
 public class UserController {
-    protected static String username;
+    protected String username=null;
+    protected String actor=null;
 
-    public void getUsername(String username){
-        this.username=username;
+    public void getInformation(String username,String actor){
+         this.username = username;
+         this.actor = actor;
     }
-
-
 
 
 }
