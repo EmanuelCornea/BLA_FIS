@@ -6,17 +6,22 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-
 import java.net.URL;
 import java.util.ResourceBundle;
 
 
-    public class HomePageWriter implements Initializable {
+    public class HomePageWriter extends UserController implements Initializable {
         @FXML
         private Button button_logout;
 
         @FXML
         Label label_welcome;
+
+        @FXML
+        private Button addBook_button;
+
+        @FXML
+        private Button deleteBook_button;
 
 
 
@@ -30,8 +35,25 @@ import java.util.ResourceBundle;
 
                 }
             });
-        }
-        public void setUserInformation(String username){
+
+
+        addBook_button.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent actionEvent) {
+                DBUtils.changeScene(actionEvent,"AddBook.fxml","Adding Book", username,"writer");
+            }
+        });
+
+
+            deleteBook_button.setOnAction(new EventHandler<ActionEvent>() {
+                @Override
+                public void handle(ActionEvent actionEvent) {
+                    DBUtils.changeScene(actionEvent,"DeleteBook.fxml","Deleting Book", username,"writer");
+                     }
+            });
+
+    }
+    public void setUserInformation(String username){
             label_welcome.setText("Welcome " + username + "!");
         }
     }
