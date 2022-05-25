@@ -5,7 +5,6 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.bla.HomePageReader">
    <children>
       <Label fx:id="label_welcome" layoutX="186.0" layoutY="94.0" prefHeight="17.0" prefWidth="313.0" text="user:" textFill="CHOCOLATE">
@@ -13,7 +12,7 @@
             <Font name="Arial Rounded MT Bold" size="15.0" />
          </font>
       </Label>
-      <Button fx:id="button_logout" layoutX="261.0" layoutY="210.0" mnemonicParsing="false" style="-fx-background-color: #D2691E;" text="Log Out">
+      <Button fx:id="button_logout" layoutX="261.0" layoutY="311.0" mnemonicParsing="false" style="-fx-background-color: #D2691E;" text="Log Out">
          <font>
             <Font name="Arial Rounded MT Bold" size="15.0" />
          </font>
@@ -23,5 +22,15 @@
             <Font name="Arial Rounded MT Bold" size="48.0" />
          </font>
       </Label>
+      <Button fx:id="button_viewBooks" layoutX="91.0" layoutY="200.0" mnemonicParsing="false" style="-fx-background-color: #D2691E;" text="View Books">
+         <font>
+            <Font name="Arial Rounded MT Bold" size="15.0" />
+         </font>
+      </Button>
+      <Button fx:id="button_buyBooks" layoutX="404.0" layoutY="200.0" mnemonicParsing="false" style="-fx-background-color: #D2691E;" text="Buy Books">
+         <font>
+            <Font name="Arial Rounded MT Bold" size="15.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>

@@ -7,6 +7,7 @@ import java.sql.*;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
+import javafx.scene.control.ListView;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -302,5 +303,18 @@ public class DBUtils {
         }
 
     }
-}
+
+    public static void ViewBooks(ListView<String> books){
+        Connection connection1 = null;
+        PreparedStatement psInsert=null;
+        ResultSet resultSet=null;
+        try {
+            connection1 = DriverManager.getConnection("jdbc:mysql://localhost:3306/bla", "root", "root");
+            psInsert=connection1.prepareStatement("select * from writer_table ");
+            resultSet=psInsert.executeQuery();
+
+    } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }}
 
