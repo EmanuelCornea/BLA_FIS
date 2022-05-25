@@ -20,6 +20,12 @@ public class HomePageReader extends UserController implements Initializable {
     private Button button_logout;
 
     @FXML
+    private Button button_viewBooks;
+
+    @FXML
+    private Button button_buyBooks;
+
+    @FXML
     Label label_welcome;
 
 
@@ -34,6 +40,14 @@ public class HomePageReader extends UserController implements Initializable {
 
             }
         });
+        button_viewBooks.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                DBUtils.changeScene(event, "ViewBooks.fxml","Log In!", username,"reader");
+
+            }
+        });
+
     }
     public void setUserInformation(String username){
         label_welcome.setText("Welcome " + username + "!");
