@@ -26,6 +26,9 @@ public class HomePageReader extends UserController implements Initializable {
     private Button button_buyBooks;
 
     @FXML
+    private Button button_AddMoney;
+
+    @FXML
     Label label_welcome;
 
 
@@ -56,8 +59,15 @@ public class HomePageReader extends UserController implements Initializable {
             }
         });
 
+        button_AddMoney.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent actionEvent) {
+                DBUtils.changeScene(actionEvent,"AddMoney.fxml","Adding Money",username,"writer");
+            }
+        });
+
     }
-    public void setUserInformation(String username){
-        label_welcome.setText("Welcome " + username + "!");
+    public void getInformation(String username, String actor){
+        label_welcome.setText("Welcome " +actor + " " + username + "!");
     }
 }

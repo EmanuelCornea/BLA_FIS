@@ -23,6 +23,9 @@ import java.util.ResourceBundle;
         @FXML
         private Button deleteBook_button;
 
+        @FXML
+        private Button viewCount_button;
+
 
 
 
@@ -56,9 +59,16 @@ import java.util.ResourceBundle;
                      }
             });
 
+            viewCount_button.setOnAction(new EventHandler<ActionEvent>() {
+                @Override
+                public void handle(ActionEvent actionEvent) {
+                    DBUtils.changeScene(actionEvent,"ViewCount.fxml","Total Viewership",username, "writer");
+                }
+            });
+
     }
-    public void setUserInformation(String username){
-            label_welcome.setText("Welcome " + username + "!");
+    public void getInformation(String username, String actor){
+            label_welcome.setText("Welcome " +actor + " " + username + "!");
         }
     }
 

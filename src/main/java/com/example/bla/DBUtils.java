@@ -301,8 +301,11 @@ public class DBUtils {
         Connection connection=null;
     Connection connection1 = null;
     Connection connection2=null;
+    Connection connection3=null;
     PreparedStatement preparedStatement = null;
     PreparedStatement psCheckUserExists1 = null;
+    PreparedStatement psView=null;
+    ResultSet resultSet2=null;
     ResultSet resultSet = null;
     ResultSet resultSet1=null;
     PreparedStatement psCheckUserExists2=null;
@@ -337,6 +340,8 @@ public class DBUtils {
             while (resultSet.next()) {
                 String retrievedAuthor = resultSet.getString("username");
                 int retrievedPrice = resultSet.getInt("bookPrice");
+                int rView=resultSet.getInt("bookView");
+
 
                 if(totalMoney-retrievedPrice>=0){
 
@@ -350,6 +355,15 @@ public class DBUtils {
                 Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
                 alert.setContentText("Book bought!");
                 alert.show();
+
+
+                    connection3= DriverManager.getConnection("jdbc:mysql://localhost:3306/bla", "root", "root");
+                    psView = connection3.prepareStatement("UPDATE writer_table set  bookView=? where bookName=?");
+
+                    psView.setInt(1, rView+1);
+                    psView.setString(2, bookName);
+                    psView.executeUpdate();
+
             }else{
                     System.out.println("Insufficient money!");
                     Alert alert = new Alert(Alert.AlertType.ERROR);
@@ -386,6 +400,54 @@ public class DBUtils {
     }
 
 }
+
+public static void AddMoney(int money){
+        Connection connection1 = null;
+    PreparedStatement psInsert = null;
+    PreparedStatement preparedStatement = null;
+    PreparedStatement psCheckUserExists1 = null;
+    ResultSet resultSet = null;
+    try {
+        connection1 = DriverManager.getConnection("jdbc:mysql://localhost:3306/bla", "root", "root");
+
+            psInsert = connection1.prepareStatement("INSERT INTO reader_table (money)  VALUES ( ?)");
+            psInsert.setInt(1, money);
+            psInsert.executeUpdate();
+            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+            alert.setContentText("Money added!");
+            alert.show();
+
+
+    } catch (SQLException e) {
+        e.printStackTrace();
+    } finally {
+        if (resultSet != null) {
+            try {
+                resultSet.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+        if (preparedStatement != null) {
+            try {
+                preparedStatement.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+        if (connection1 != null) {
+            try {
+                connection1.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+
+    }
+
+}
+
+
 
 
 }

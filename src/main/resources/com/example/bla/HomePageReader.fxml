@@ -27,7 +27,12 @@
             <Font name="Arial Rounded MT Bold" size="15.0" />
          </font>
       </Button>
-      <Button fx:id="button_buyBooks" layoutX="404.0" layoutY="200.0" mnemonicParsing="false" style="-fx-background-color: #D2691E;" text="Buy Books">
+      <Button fx:id="button_buyBooks" layoutX="251.0" layoutY="200.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="105.0" style="-fx-background-color: #D2691E;" text="Buy Books">
+         <font>
+            <Font name="Arial Rounded MT Bold" size="15.0" />
+         </font>
+      </Button>
+      <Button fx:id="button_AddMoney" layoutX="404.0" layoutY="200.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="105.0" style="-fx-background-color: #D2691E;" text="Add Money">
          <font>
             <Font name="Arial Rounded MT Bold" size="15.0" />
          </font>

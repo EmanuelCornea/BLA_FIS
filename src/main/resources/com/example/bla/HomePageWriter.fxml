@@ -22,11 +22,16 @@
             <Font name="Arial Rounded MT Bold" size="15.0" />
          </font>
       </Label>
-      <Button fx:id="addBook_button" layoutX="126.0" layoutY="169.0" mnemonicParsing="false"  style="-fx-background-color: #d2691e;" text="Add book">
+      <Button fx:id="addBook_button" layoutX="117.0" layoutY="169.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="110.0" style="-fx-background-color: #d2691e;" text="Add book">
          <font>
             <Font name="Arial Rounded MT Bold" size="14.0" />
          </font></Button>
-      <Button fx:id="deleteBook_button" layoutX="349.0" layoutY="169.0" mnemonicParsing="false"  style="-fx-background-color: #d2691e;" text="Delete Book">
+      <Button fx:id="deleteBook_button" layoutX="349.0" layoutY="169.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="110.0" style="-fx-background-color: #d2691e;" text="Delete Book">
+         <font>
+            <Font name="Arial Rounded MT Bold" size="14.0" />
+         </font>
+      </Button>
+      <Button fx:id="viewCount_button" layoutX="117.0" layoutY="235.0" mnemonicParsing="false" style="-fx-background-color: #d2691e;" text="Viewer Count">
          <font>
             <Font name="Arial Rounded MT Bold" size="14.0" />
          </font>
